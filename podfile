@@ -1,0 +1,20 @@
+source 'https://cdn.cocoapods.org/'
+platform :ios, '11.0'
+use_frameworks!
+inhibit_all_warnings!
+
+target 'PixelDraw' do
+
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'SnapKit'
+  pod 'Disk'
+  pod 'Masonry'
+  pod 'DeviceKit'
+  pod 'XHYCategories'
+  pod 'RxKeyboard'
+  pod 'SwiftEntryKit'
+  pod 'TextAttributes'
+  pod 'ZLPhotoBrowser', '4.1.7'
+
+end

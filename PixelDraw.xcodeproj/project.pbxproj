@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5157B07F28154C63006BB62A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B07E28154C63006BB62A /* AppDelegate.swift */; };
+		5157B08328154C63006BB62A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B08228154C63006BB62A /* ViewController.swift */; };
+		5157B08828154C65006BB62A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5157B08728154C65006BB62A /* Assets.xcassets */; };
+		5157B08B28154C65006BB62A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157B08928154C65006BB62A /* LaunchScreen.storyboard */; };
+		5157B09A28154DD6006BB62A /* CanvasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09328154DD6006BB62A /* CanvasController.swift */; };
+		5157B09B28154DD6006BB62A /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09428154DD6006BB62A /* CanvasViewModel.swift */; };
+		5157B09C28154DD6006BB62A /* Pallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09528154DD6006BB62A /* Pallet.swift */; };
+		5157B09D28154DD6006BB62A /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09628154DD6006BB62A /* Canvas.swift */; };
+		5157B09E28154DD6006BB62A /* CanvasControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09728154DD6006BB62A /* CanvasControlCenter.swift */; };
+		5157B09F28154DD6006BB62A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09828154DD6006BB62A /* Theme.swift */; };
+		5157B0A028154DD6006BB62A /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09928154DD6006BB62A /* Metrics.swift */; };
+		519A05FC2817C45200BD89F8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FB2817C45200BD89F8 /* ColorPickerView.swift */; };
+		519A05FE2817D13100BD89F8 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FD2817D13100BD89F8 /* Hex.swift */; };
+		519A06002817D25A00BD89F8 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FF2817D25A00BD89F8 /* RGB.swift */; };
+		519A06022818F7B500BD89F8 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A06012818F7B500BD89F8 /* ColorPickerViewController.swift */; };
+		519A06152818F7F500BD89F8 /* HSBSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A06082818F7F500BD89F8 /* HSBSupport.m */; };
+		519A06172818F7F500BD89F8 /* DivoomColorLumpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A060E2818F7F500BD89F8 /* DivoomColorLumpView.m */; };
+		519A06182818F7F500BD89F8 /* DivoomColorSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A060F2818F7F500BD89F8 /* DivoomColorSquareView.m */; };
+		519A06192818F7F500BD89F8 /* DivoomColorBarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A06112818F7F500BD89F8 /* DivoomColorBarPickerView.m */; };
+		519A061A2818F7F500BD89F8 /* ColorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A06122818F7F500BD89F8 /* ColorIndicatorView.m */; };
+		519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061B2818F80800BD89F8 /* ReportDataView.swift */; };
+		519A061E281917C900BD89F8 /* ColorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061D281917C900BD89F8 /* ColorListViewController.swift */; };
+		519A062028191EB300BD89F8 /* ColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061F28191EB300BD89F8 /* ColorsViewModel.swift */; };
+		5F68923AA49317E0DCFB07C6 /* Pods_PixelDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DB29F9E1E8707B31930080 /* Pods_PixelDraw.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11DB29F9E1E8707B31930080 /* Pods_PixelDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixelDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5157B07B28154C63006BB62A /* PixelDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5157B07E28154C63006BB62A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5157B08228154C63006BB62A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5157B08728154C65006BB62A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5157B08A28154C65006BB62A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5157B08C28154C65006BB62A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5157B09328154DD6006BB62A /* CanvasController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasController.swift; sourceTree = "<group>"; };
+		5157B09428154DD6006BB62A /* CanvasViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
+		5157B09528154DD6006BB62A /* Pallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pallet.swift; sourceTree = "<group>"; };
+		5157B09628154DD6006BB62A /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		5157B09728154DD6006BB62A /* CanvasControlCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasControlCenter.swift; sourceTree = "<group>"; };
+		5157B09828154DD6006BB62A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5157B09928154DD6006BB62A /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		519A05FB2817C45200BD89F8 /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		519A05FD2817D13100BD89F8 /* Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
+		519A05FF2817D25A00BD89F8 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		519A06012818F7B500BD89F8 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		519A06032818F7E700BD89F8 /* PixelDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelDraw-Bridging-Header.h"; sourceTree = "<group>"; };
+		519A06082818F7F500BD89F8 /* HSBSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSBSupport.m; sourceTree = "<group>"; };
+		519A060B2818F7F500BD89F8 /* HSBSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBSupport.h; sourceTree = "<group>"; };
+		519A060D2818F7F500BD89F8 /* DivoomColorBarPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivoomColorBarPickerView.h; sourceTree = "<group>"; };
+		519A060E2818F7F500BD89F8 /* DivoomColorLumpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivoomColorLumpView.m; sourceTree = "<group>"; };
+		519A060F2818F7F500BD89F8 /* DivoomColorSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivoomColorSquareView.m; sourceTree = "<group>"; };
+		519A06102818F7F500BD89F8 /* ColorIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorIndicatorView.h; sourceTree = "<group>"; };
+		519A06112818F7F500BD89F8 /* DivoomColorBarPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivoomColorBarPickerView.m; sourceTree = "<group>"; };
+		519A06122818F7F500BD89F8 /* ColorIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorIndicatorView.m; sourceTree = "<group>"; };
+		519A06132818F7F500BD89F8 /* DivoomColorSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivoomColorSquareView.h; sourceTree = "<group>"; };
+		519A06142818F7F500BD89F8 /* DivoomColorLumpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivoomColorLumpView.h; sourceTree = "<group>"; };
+		519A061B2818F80800BD89F8 /* ReportDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDataView.swift; sourceTree = "<group>"; };
+		519A061D281917C900BD89F8 /* ColorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewController.swift; sourceTree = "<group>"; };
+		519A061F28191EB300BD89F8 /* ColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewModel.swift; sourceTree = "<group>"; };
+		55E3D976A89B4FB2D25A764B /* Pods-PixelDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelDraw.release.xcconfig"; path = "Target Support Files/Pods-PixelDraw/Pods-PixelDraw.release.xcconfig"; sourceTree = "<group>"; };
+		7BB03C3C575499AA4EE5768D /* Pods-PixelDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelDraw.debug.xcconfig"; path = "Target Support Files/Pods-PixelDraw/Pods-PixelDraw.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5157B07828154C63006BB62A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F68923AA49317E0DCFB07C6 /* Pods_PixelDraw.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17A8D85443207D0EA3A0D3BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BB03C3C575499AA4EE5768D /* Pods-PixelDraw.debug.xcconfig */,
+				55E3D976A89B4FB2D25A764B /* Pods-PixelDraw.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		21ACD92A9C95033A16E9ADED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11DB29F9E1E8707B31930080 /* Pods_PixelDraw.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5157B07228154C63006BB62A = {
+			isa = PBXGroup;
+			children = (
+				5157B07D28154C63006BB62A /* PixelDraw */,
+				5157B07C28154C63006BB62A /* Products */,
+				17A8D85443207D0EA3A0D3BF /* Pods */,
+				21ACD92A9C95033A16E9ADED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5157B07C28154C63006BB62A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5157B07B28154C63006BB62A /* PixelDraw.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5157B07D28154C63006BB62A /* PixelDraw */ = {
+			isa = PBXGroup;
+			children = (
+				5157B09228154DD6006BB62A /* Sources */,
+				5157B07E28154C63006BB62A /* AppDelegate.swift */,
+				519A05FD2817D13100BD89F8 /* Hex.swift */,
+				519A05FF2817D25A00BD89F8 /* RGB.swift */,
+				5157B08228154C63006BB62A /* ViewController.swift */,
+				519A061F28191EB300BD89F8 /* ColorsViewModel.swift */,
+				519A05FB2817C45200BD89F8 /* ColorPickerView.swift */,
+				519A06012818F7B500BD89F8 /* ColorPickerViewController.swift */,
+				519A061D281917C900BD89F8 /* ColorListViewController.swift */,
+				519A061B2818F80800BD89F8 /* ReportDataView.swift */,
+				5157B08728154C65006BB62A /* Assets.xcassets */,
+				5157B08928154C65006BB62A /* LaunchScreen.storyboard */,
+				5157B08C28154C65006BB62A /* Info.plist */,
+				519A06032818F7E700BD89F8 /* PixelDraw-Bridging-Header.h */,
+				519A06072818F7F500BD89F8 /* DivoomColorPickerVC */,
+			);
+			path = PixelDraw;
+			sourceTree = "<group>";
+		};
+		5157B09228154DD6006BB62A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5157B09328154DD6006BB62A /* CanvasController.swift */,
+				5157B09428154DD6006BB62A /* CanvasViewModel.swift */,
+				5157B09528154DD6006BB62A /* Pallet.swift */,
+				5157B09628154DD6006BB62A /* Canvas.swift */,
+				5157B09728154DD6006BB62A /* CanvasControlCenter.swift */,
+				5157B09828154DD6006BB62A /* Theme.swift */,
+				5157B09928154DD6006BB62A /* Metrics.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		519A06072818F7F500BD89F8 /* DivoomColorPickerVC */ = {
+			isa = PBXGroup;
+			children = (
+				519A06082818F7F500BD89F8 /* HSBSupport.m */,
+				519A060B2818F7F500BD89F8 /* HSBSupport.h */,
+				519A060C2818F7F500BD89F8 /* View */,
+			);
+			path = DivoomColorPickerVC;
+			sourceTree = "<group>";
+		};
+		519A060C2818F7F500BD89F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				519A060D2818F7F500BD89F8 /* DivoomColorBarPickerView.h */,
+				519A060E2818F7F500BD89F8 /* DivoomColorLumpView.m */,
+				519A060F2818F7F500BD89F8 /* DivoomColorSquareView.m */,
+				519A06102818F7F500BD89F8 /* ColorIndicatorView.h */,
+				519A06112818F7F500BD89F8 /* DivoomColorBarPickerView.m */,
+				519A06122818F7F500BD89F8 /* ColorIndicatorView.m */,
+				519A06132818F7F500BD89F8 /* DivoomColorSquareView.h */,
+				519A06142818F7F500BD89F8 /* DivoomColorLumpView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5157B07A28154C63006BB62A /* PixelDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5157B08F28154C65006BB62A /* Build configuration list for PBXNativeTarget "PixelDraw" */;
+			buildPhases = (
+				13DCBC311DAF44F88ED202B3 /* [CP] Check Pods Manifest.lock */,
+				5157B07728154C63006BB62A /* Sources */,
+				5157B07828154C63006BB62A /* Frameworks */,
+				5157B07928154C63006BB62A /* Resources */,
+				BF373B07B36DBA7BA5F1E058 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PixelDraw;
+			productName = PixelDraw;
+			productReference = 5157B07B28154C63006BB62A /* PixelDraw.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5157B07328154C63006BB62A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					5157B07A28154C63006BB62A = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
+					};
+				};
+			};
+			buildConfigurationList = 5157B07628154C63006BB62A /* Build configuration list for PBXProject "PixelDraw" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5157B07228154C63006BB62A;
+			productRefGroup = 5157B07C28154C63006BB62A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5157B07A28154C63006BB62A /* PixelDraw */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5157B07928154C63006BB62A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5157B08B28154C65006BB62A /* LaunchScreen.storyboard in Resources */,
+				5157B08828154C65006BB62A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13DCBC311DAF44F88ED202B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PixelDraw-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF373B07B36DBA7BA5F1E058 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PixelDraw/Pods-PixelDraw-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PixelDraw/Pods-PixelDraw-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PixelDraw/Pods-PixelDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5157B07728154C63006BB62A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				519A06022818F7B500BD89F8 /* ColorPickerViewController.swift in Sources */,
+				5157B09C28154DD6006BB62A /* Pallet.swift in Sources */,
+				5157B09F28154DD6006BB62A /* Theme.swift in Sources */,
+				5157B09E28154DD6006BB62A /* CanvasControlCenter.swift in Sources */,
+				519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */,
+				519A061A2818F7F500BD89F8 /* ColorIndicatorView.m in Sources */,
+				519A06192818F7F500BD89F8 /* DivoomColorBarPickerView.m in Sources */,
+				519A06002817D25A00BD89F8 /* RGB.swift in Sources */,
+				5157B09B28154DD6006BB62A /* CanvasViewModel.swift in Sources */,
+				519A06172818F7F500BD89F8 /* DivoomColorLumpView.m in Sources */,
+				519A061E281917C900BD89F8 /* ColorListViewController.swift in Sources */,
+				519A05FC2817C45200BD89F8 /* ColorPickerView.swift in Sources */,
+				519A05FE2817D13100BD89F8 /* Hex.swift in Sources */,
+				5157B0A028154DD6006BB62A /* Metrics.swift in Sources */,
+				519A062028191EB300BD89F8 /* ColorsViewModel.swift in Sources */,
+				5157B08328154C63006BB62A /* ViewController.swift in Sources */,
+				5157B07F28154C63006BB62A /* AppDelegate.swift in Sources */,
+				519A06182818F7F500BD89F8 /* DivoomColorSquareView.m in Sources */,
+				5157B09A28154DD6006BB62A /* CanvasController.swift in Sources */,
+				5157B09D28154DD6006BB62A /* Canvas.swift in Sources */,
+				519A06152818F7F500BD89F8 /* HSBSupport.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5157B08928154C65006BB62A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5157B08A28154C65006BB62A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5157B08D28154C65006BB62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5157B08E28154C65006BB62A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5157B09028154C65006BB62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BB03C3C575499AA4EE5768D /* Pods-PixelDraw.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z983J96G6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PixelDraw/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.x.PixelDraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PixelDraw/PixelDraw-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5157B09128154C65006BB62A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55E3D976A89B4FB2D25A764B /* Pods-PixelDraw.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z983J96G6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PixelDraw/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.x.PixelDraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PixelDraw/PixelDraw-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5157B07628154C63006BB62A /* Build configuration list for PBXProject "PixelDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5157B08D28154C65006BB62A /* Debug */,
+				5157B08E28154C65006BB62A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5157B08F28154C65006BB62A /* Build configuration list for PBXNativeTarget "PixelDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5157B09028154C65006BB62A /* Debug */,
+				5157B09128154C65006BB62A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5157B07328154C63006BB62A /* Project object */;
+}
