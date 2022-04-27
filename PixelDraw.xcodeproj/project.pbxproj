@@ -11,7 +11,6 @@
 		5157B08328154C63006BB62A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B08228154C63006BB62A /* ViewController.swift */; };
 		5157B08828154C65006BB62A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5157B08728154C65006BB62A /* Assets.xcassets */; };
 		5157B08B28154C65006BB62A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157B08928154C65006BB62A /* LaunchScreen.storyboard */; };
-		5157B09A28154DD6006BB62A /* CanvasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09328154DD6006BB62A /* CanvasController.swift */; };
 		5157B09B28154DD6006BB62A /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09428154DD6006BB62A /* CanvasViewModel.swift */; };
 		5157B09C28154DD6006BB62A /* Pallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09528154DD6006BB62A /* Pallet.swift */; };
 		5157B09D28154DD6006BB62A /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09628154DD6006BB62A /* Canvas.swift */; };
@@ -41,7 +40,6 @@
 		5157B08728154C65006BB62A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5157B08A28154C65006BB62A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5157B08C28154C65006BB62A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5157B09328154DD6006BB62A /* CanvasController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasController.swift; sourceTree = "<group>"; };
 		5157B09428154DD6006BB62A /* CanvasViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
 		5157B09528154DD6006BB62A /* Pallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pallet.swift; sourceTree = "<group>"; };
 		5157B09628154DD6006BB62A /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		5157B09228154DD6006BB62A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5157B09328154DD6006BB62A /* CanvasController.swift */,
 				5157B09428154DD6006BB62A /* CanvasViewModel.swift */,
 				5157B09528154DD6006BB62A /* Pallet.swift */,
 				5157B09628154DD6006BB62A /* Canvas.swift */,
@@ -311,7 +308,6 @@
 				5157B08328154C63006BB62A /* ViewController.swift in Sources */,
 				5157B07F28154C63006BB62A /* AppDelegate.swift in Sources */,
 				519A06182818F7F500BD89F8 /* DivoomColorSquareView.m in Sources */,
-				5157B09A28154DD6006BB62A /* CanvasController.swift in Sources */,
 				5157B09D28154DD6006BB62A /* Canvas.swift in Sources */,
 				519A06152818F7F500BD89F8 /* HSBSupport.m in Sources */,
 			);

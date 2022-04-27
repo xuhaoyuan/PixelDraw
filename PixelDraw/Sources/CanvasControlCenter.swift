@@ -4,6 +4,8 @@ protocol CanvasControlCenterDelegate: AnyObject {
     func undoPressed()
     func redoPressed()
     func savePressed()
+    func zoomPressed()
+    func clearPressed()
 }
 
 class CanvasControlCenter: UIView {
@@ -31,14 +33,24 @@ class CanvasControlCenter: UIView {
         redoButton.setImage(UIImage(named: "redo"), for: .normal)
         redoButton.addTarget(self, action: #selector(redoButtonPressed), for: .touchUpInside)
 
+        let zoomButton = UIButton()
+        zoomButton.setImage(UIImage(named: "collect"), for: .normal)
+        zoomButton.addTarget(self, action: #selector(zoomButtonPressed), for: .touchUpInside)
+
         let saveButton = UIButton()
         saveButton.setImage(UIImage(named: "download"), for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
 
-        let stackView = UIStackView(subviews: [undoButton, redoButton, saveButton], axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 8)
-        stackView.addArrangedSubview(undoButton)
-        stackView.addArrangedSubview(redoButton)
-        stackView.addArrangedSubview(saveButton)
+
+        let clearButton = UIButton()
+        clearButton.setImage(UIImage(named: "clear"), for: .normal)
+        clearButton.addTarget(self, action: #selector(clearButtonPressed), for: .touchUpInside)
+
+
+        let lview = UIView()
+        let rview = UIView()
+
+        let stackView = UIStackView(subviews: [clearButton, lview, undoButton, zoomButton, redoButton, rview, saveButton], axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 8)
         addSubview(stackView)
 
         undoButton.snp.makeConstraints { make in
@@ -53,10 +65,19 @@ class CanvasControlCenter: UIView {
             make.size.equalTo(40)
         }
 
+        zoomButton.snp.makeConstraints { make in
+            make.size.equalTo(40)
+        }
+
+        lview.snp.makeConstraints { make in
+            make.width.equalTo(rview)
+        }
+
         stackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.height.equalTo(40)
-            make.leading.equalToSuperview()
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16)
         }
     }
@@ -71,5 +92,14 @@ class CanvasControlCenter: UIView {
 
     @objc func saveButtonPressed() {
         delegate?.savePressed()
+    }
+
+    @objc func zoomButtonPressed() {
+        delegate?.zoomPressed()
+    }
+
+
+    @objc func clearButtonPressed() {
+        delegate?.clearPressed()
     }
 }

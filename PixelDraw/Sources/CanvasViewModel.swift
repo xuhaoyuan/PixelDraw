@@ -86,7 +86,7 @@ class CanvasViewModel: NSObject {
     private var model = CanvasModel()
 
     private var willTerminate: NSObjectProtocol?
-
+    static let path = "/pixelData/data"
     weak var delegate: CanvasDelegate?
 
     init(initialState: CanvasModel?) {
@@ -108,7 +108,7 @@ class CanvasViewModel: NSObject {
         let encode = JSONEncoder()
         do {
             let jsonObj = try encode.encode(model)
-            try Disk.save(jsonObj, to: .documents, as: "/pixelData/data")
+            try Disk.save(jsonObj, to: .documents, as: Self.path)
         } catch {
 
         }
@@ -143,6 +143,12 @@ class CanvasViewModel: NSObject {
         }
     }
 
+    func clear() {
+        delegate?.clearCanvas()
+        model = CanvasModel()
+        try? Disk.remove(Self.path, from: .documents)
+    }
+
     func undo() {
         guard let lastDraw = model.stateHistory.popLast() else { return }
 
@@ -164,7 +170,6 @@ class CanvasViewModel: NSObject {
             delegate?.colorChanged(newPixelState: pixelState)
         }
     }
-
 
     func recoveryCanvas() {
         for pixelState in model.currentCanvas {

@@ -21,6 +21,7 @@ class ColorsViewModel: NSObject {
     private static let path = "/pixelData/colors"
 
     private let colorsRelay = BehaviorRelay<[UIColor]>(value: [])
+    private let disposbag = DisposeBag()
 
     override init() {
         super.init()
@@ -34,12 +35,13 @@ class ColorsViewModel: NSObject {
 
         colorsRelay.bind { [weak self] data in
             self?.saveData()
-        }
+        }.disposed(by: disposbag)
     }
 
     func replace(color: UIColor, to newColor: UIColor) {
         var colors = colorsRelay.value
-        colors = colors.map({ return $0 == color ? newColor : color })
+        colors = colors.map({ return $0 == color ? newColor : $0 })
+        colorsRelay.accept(colors)
     }
 
     func append(color: UIColor) {

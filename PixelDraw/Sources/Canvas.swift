@@ -19,7 +19,7 @@ public class Canvas: UIView {
 		self.height = height
 		self.pixelSize = pixelSize
 		canvasDefaultColor = canvasColor
-        let model = try? Disk.retrieve("/pixelData/data", from: .documents, as: CanvasModel.self)
+        let model = try? Disk.retrieve(CanvasViewModel.path, from: .documents, as: CanvasModel.self)
 		viewModel = CanvasViewModel(initialState: model)
         let width: CGFloat = CGFloat(width) * pixelSize
         let height: CGFloat = CGFloat(height) * pixelSize
@@ -31,7 +31,7 @@ public class Canvas: UIView {
         }
 		setupView()
         viewModel.recoveryCanvas()
-        backgroundColor = canvasColor
+        backgroundColor = UIColor.white
 	}
 
 	required public init?(coder aDecoder: NSCoder) {
@@ -147,16 +147,18 @@ extension Canvas: CanvasDelegate {
 
 extension Canvas: UIGestureRecognizerDelegate {
 
-	public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if (otherGestureRecognizer is UIPanGestureRecognizer && otherGestureRecognizer.view is UIScrollView && otherGestureRecognizer.numberOfTouches == 2) || (otherGestureRecognizer is UIPinchGestureRecognizer && otherGestureRecognizer.view is UIScrollView) {
-            otherGestureRecognizer.state = .cancelled
-            print("false")
-            return false
-        } else {
-
-            print(gestureRecognizer, "---", otherGestureRecognizer)
-            return true
-        }
-	}
+//	public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        if (otherGestureRecognizer is UIPanGestureRecognizer && otherGestureRecognizer.view is UIScrollView) || (otherGestureRecognizer is UIPinchGestureRecognizer && otherGestureRecognizer.view is UIScrollView) {
+//            if gestureRecognizer is UITapGestureRecognizer, otherGestureRecognizer is UIPanGestureRecognizer {
+//                gestureRecognizer.state = .cancelled
+//                return true
+//            } else {
+//                otherGestureRecognizer.state = .cancelled
+//                return false
+//            }
+//        } else {
+//            return true
+//        }
+//	}
 
 }

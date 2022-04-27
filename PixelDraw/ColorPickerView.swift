@@ -17,9 +17,26 @@ class ColorPickerView: UIView {
     private var list: [UIColor] = []
     private let disposbag = DisposeBag()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.black
+    enum Entry {
+        case draw
+        case color
+    }
+    private let entry: Entry
+    init(entry: Entry) {
+        self.entry = entry
+        super.init(frame: .zero)
+
+        switch entry {
+        case .draw:
+            backgroundColor = UIColor.black
+            collectionView.allowsSelection = true
+            collectionView.allowsMultipleSelection = false
+            collectionView.backgroundColor = UIColor.black
+        case .color:
+            backgroundColor = UIColor.white
+            collectionView.backgroundColor = UIColor.white
+        }
+
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -38,7 +55,6 @@ class ColorPickerView: UIView {
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 24, height: 24)
         layout.minimumInteritemSpacing = 8
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -46,9 +62,8 @@ class ColorPickerView: UIView {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = UIColor.black
         collectionView.alwaysBounceHorizontal = true
-        collectionView.registerCell(UICollectionViewCell.self)
+        collectionView.registerCell(ColorCollectionCell.self)
         collectionView.registerCell(AddCollectionCell.self)
         return collectionView
     }()
@@ -71,7 +86,12 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource,
         case .item:
             return list.count
         case .add:
-            return 1
+            switch entry {
+            case .draw:
+                return 1
+            case .color:
+                return 0
+            }
         }
     }
 
@@ -79,10 +99,9 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource,
         guard let section = Section(rawValue: indexPath.section) else { fatalError() }
         switch section {
         case .item:
-            let cell: UICollectionViewCell = collectionView.dequeueReusableCell(indexPath)
+            let cell: ColorCollectionCell = collectionView.dequeueReusableCell(indexPath)
             cell.backgroundColor = list[indexPath.row]
-            cell.corner = 12
-            cell.border(color: .gray, width: 1)
+            cell.border(color: .gray, width: 2)
             return cell
         case .add:
             let cell: AddCollectionCell = collectionView.dequeueReusableCell(indexPath)
@@ -97,6 +116,15 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource,
             colorHandler?(list[indexPath.row])
         case .add:
             addHandler?()
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch entry {
+        case .draw:
+            return CGSize(width: 24, height: 24)
+        case .color:
+            return CGSize(width: 40, height: 40)
         }
     }
 
@@ -130,5 +158,20 @@ class AddCollectionCell: UICollectionViewCell {
 }
 
 class ColorCollectionCell: UICollectionViewCell {
-    
+
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                border(color: .white, width: 2)
+            } else {
+                border(color: .gray, width: 2)
+            }
+        }
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        corner = frame.height/2
+    }
+
 }

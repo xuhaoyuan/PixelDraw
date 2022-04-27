@@ -116,7 +116,6 @@ class ReportDataView: UIView {
     private func getField() -> UITextField {
         let field = UITextField()
         field.textColor = UIColor.black
-        field.keyboardType = .asciiCapableNumberPad
         field.returnKeyType = .done
         field.delegate = self
         field.inputAccessoryView = FinishInputView(callBack: {

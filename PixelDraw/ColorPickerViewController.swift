@@ -22,7 +22,7 @@ class ColorPickerViewController: UIViewController {
 
     private let barPickerView = DivoomColorBarPickerView()
     private let squareView = DivoomColorSquareView()
-    private let colorLumpView = ColorPickerView()
+    private let colorLumpView = ColorPickerView(entry: .color)
 
     private let contentView = UIView()
 
