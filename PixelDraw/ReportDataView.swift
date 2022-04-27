@@ -12,11 +12,10 @@ import XHYCategories
 
 class ReportDataView: UIView {
 
+    var selectHandler: VoidHandler?
+
     private let hexLabel = getLabel(text: "Hex:")
     private lazy var hexField = getField()
-
-    private let rgbButton = UIButton(image: UIImage(named: "copy"), edge: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
-    private let hexButton = UIButton(image: UIImage(named: "copy"), edge: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
 
     private let rLabel = getLabel(text: "R:")
     private lazy var rField = getField()
@@ -45,37 +44,19 @@ class ReportDataView: UIView {
                        getStack(label: gLabel, textField: gField),
                        getStack(label: bLabel, textField: bField)],
             axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 8)
-        rgbButton.tintColor = UIColor.black
-        hexButton.tintColor = UIColor.black
-        addSubview(rgbButton)
-        addSubview(hexButton)
         addSubview(topStackView)
         addSubview(bottomStackView)
 
         topStackView.snp.makeConstraints { make in
             make.leading.top.equalToSuperview()
             make.height.equalTo(36)
+            make.trailing.equalTo(bottomStackView)
         }
+
         bottomStackView.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview()
             make.height.equalTo(36)
             make.top.equalTo(topStackView.snp.bottom).offset(8)
-        }
-
-        hexButton.setContentHuggingPriority(.required, for: .horizontal)
-        hexButton.snp.makeConstraints { make in
-            make.top.equalTo(topStackView)
-            make.bottom.equalTo(topStackView)
-            make.trailing.equalTo(-8)
-            make.leading.equalTo(topStackView.snp.trailing).offset(8)
-        }
-
-        rgbButton.setContentHuggingPriority(.required, for: .horizontal)
-        rgbButton.snp.makeConstraints { make in
-            make.top.equalTo(bottomStackView)
-            make.bottom.equalTo(bottomStackView)
-            make.trailing.equalTo(-8)
-            make.leading.equalTo(bottomStackView.snp.trailing).offset(8)
         }
 
         hexField.rx.controlEvent(.editingDidEnd).bind { [weak self] _ in
@@ -94,20 +75,6 @@ class ReportDataView: UIView {
 
         bField.rx.controlEvent(.editingDidEnd).bind { [weak self] _ in
             self?.createColor()
-        }.disposed(by: disposeBag)
-
-        hexButton.rx.tap.bind { [weak self] _ in
-            guard let self = self else { return }
-            guard let text = self.hexField.text else { return }
-            UIPasteboard.general.string = text
-        }.disposed(by: disposeBag)
-
-        rgbButton.rx.tap.bind { [weak self] _ in
-            guard let self = self else { return }
-            guard let r = self.rField.text,
-                  let g = self.gField.text,
-                  let b = self.bField.text else { return }
-            UIPasteboard.general.string = "\(r) \(g) \(b)"
         }.disposed(by: disposeBag)
     }
 

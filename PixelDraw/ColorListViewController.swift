@@ -13,7 +13,9 @@ class ColorListViewController: UIViewController {
 
     static func show(from: UIViewController) {
         let vc = ColorListViewController()
-        from.show(vc, sender: nil)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        from.show(nav, sender: nil)
     }
 
     private lazy var collectionView: UICollectionView = {
@@ -22,10 +24,11 @@ class ColorListViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = UIColor.clear
-        collectionView.alwaysBounceHorizontal = true
+        collectionView.alwaysBounceVertical = true
         collectionView.registerCell(ColorListCell.self)
         return collectionView
     }()
@@ -44,15 +47,37 @@ class ColorListViewController: UIViewController {
         return view
     }()
 
+    private lazy var rightItem: UIBarButtonItem = {
+        return UIBarButtonItem(title: "添加", style: UIBarButtonItem.Style.done) { [weak self] in
+            guard let self = self else { return }
+            let vc = ColorPickerViewController(editType: .add)
+            self.show(vc, sender: nil)
+        }
+    }()
+
+    private lazy var leftItem: UIBarButtonItem = {
+        return UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.done) { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true, completion: nil)
+        }
+    }()
+
     private var viewModel = ColorsViewModel.shared
 
     private let disposebag = DisposeBag()
 
     private var colors: [UIColor] = []
 
+    deinit {
+        viewModel.update(colors: colors)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "颜色板"
+        navigationItem.leftBarButtonItem = leftItem
+        navigationItem.rightBarButtonItem = rightItem
         makeUI()
 
         viewModel.colorsObservable.bind { [weak self] colors in
@@ -66,7 +91,7 @@ class ColorListViewController: UIViewController {
 
     private var moveIndexPath: IndexPath?
     @objc func handleLongGesture(ges: UILongPressGestureRecognizer) {
-        let location = ges.location(in: collectionView)
+        var location = ges.location(in: collectionView)
         switch (ges.state) {
         case .began:
             moveIndexPath = nil
@@ -78,16 +103,19 @@ class ColorListViewController: UIViewController {
             collectionView.beginInteractiveMovementForItem(at: indexPath)
         case .changed:
             collectionView.updateInteractiveMovementTargetPosition(location)
+            location = view.convert(location, from: collectionView)
             interactive(fromPoint: location)
         case .ended:
             collectionView.endInteractiveMovement()
             interactive(fromPoint: .zero)
+            location = view.convert(location, from: collectionView)
             guard deleteView.frame.contains(location) else { return }
             guard let indexPath = self.moveIndexPath else { return }
             colors.remove(at: indexPath.row)
             collectionView.performBatchUpdates { [weak self] in
                 self?.collectionView.deleteItems(at: [indexPath])
-            } completion: { [weak self] _ in
+            } completion: { _ in
+
             }
         default:
             collectionView.cancelInteractiveMovement()
@@ -127,6 +155,12 @@ class ColorListViewController: UIViewController {
 }
 
 extension ColorListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ColorPickerViewController(editType: .edit(colors[indexPath.row]))
+        show(vc, sender: nil)
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }
@@ -176,6 +210,7 @@ fileprivate class ColorListCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         corner = frame.height/2
+        border(color: .black, width: 2)
     }
 }
 

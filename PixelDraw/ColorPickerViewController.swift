@@ -8,8 +8,11 @@
 import UIKit
 import SnapKit
 import RxSwift
+import XHYCategories
 
 class ColorPickerViewController: UIViewController {
+
+    var colorHandler: SingleHandler<UIColor>?
 
     private let disposeBag = DisposeBag()
     
@@ -23,13 +26,49 @@ class ColorPickerViewController: UIViewController {
 
     private let contentView = UIView()
 
-//    static func show(
+    private let editType: EditType
+
+    private lazy var rightItem: UIBarButtonItem = {
+        return UIBarButtonItem(title: "确定", style: UIBarButtonItem.Style.done) { [weak self] in
+            guard let self = self else { return }
+            switch self.editType {
+            case .add:
+                ColorsViewModel.shared.append(color: self.squareView.curColor)
+            case .edit(let color):
+                ColorsViewModel.shared.replace(color: color, to: self.squareView.curColor)
+            }
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+    }()
+
+    enum EditType {
+        case edit(UIColor)
+        case add
+    }
+
+    init(editType: EditType) {
+        self.editType = editType
+        super.init(nibName: nil, bundle: nil)
+
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
 
+        navigationItem.title = "编辑颜色"
+        navigationItem.rightBarButtonItem = rightItem
+        
         makeUI()
+        switch self.editType {
+        case .add: break
+        case .edit(let color):
+            fillColor(color: color)
+        }
 
         barPickerView.valueChangedBlock = { [weak self] value in
             self?.squareView.hvalue = value
@@ -48,7 +87,6 @@ class ColorPickerViewController: UIViewController {
             guard let color = color else { return }
             self?.fillColor(color: color)
         }.disposed(by: disposeBag)
-
     }
 
     private func makeUI() {

@@ -6,29 +6,16 @@
 //
 
 import UIKit
+import RxSwift
 import XHYCategories
 
 class ColorPickerView: UIView {
 
-    private let list: [UIColor] = {
-        return [
-            UIColor(r: 255, g: 255, b: 255, a: 1),
-            UIColor(r: 0, g: 0, b: 0, a: 1),
-            UIColor.red,
-            UIColor.green,
-            UIColor.blue,
-            UIColor.cyan,
-            UIColor.yellow,
-            UIColor.magenta,
-            UIColor.orange,
-            UIColor.purple,
-            UIColor.brown
-        ]
-    }()
-
     var colorHandler: SingleHandler<UIColor>?
     var addHandler: VoidHandler?
 
+    private var list: [UIColor] = []
+    private let disposbag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,6 +25,11 @@ class ColorPickerView: UIView {
             make.edges.equalToSuperview()
             make.height.equalTo(40)
         }
+
+        ColorsViewModel.shared.colorsObservable.bind { [weak self] colors in
+            self?.list = colors
+            self?.collectionView.reloadData()
+        }.disposed(by: disposbag)
     }
 
     required init?(coder: NSCoder) {

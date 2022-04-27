@@ -37,6 +37,17 @@ class ColorsViewModel: NSObject {
         }
     }
 
+    func replace(color: UIColor, to newColor: UIColor) {
+        var colors = colorsRelay.value
+        colors = colors.map({ return $0 == color ? newColor : color })
+    }
+
+    func append(color: UIColor) {
+        var colors = colorsRelay.value
+        colors.append(color)
+        colorsRelay.accept(colors)
+    }
+
     func update(colors: [UIColor]) {
         colorsRelay.accept(colors)
     }
