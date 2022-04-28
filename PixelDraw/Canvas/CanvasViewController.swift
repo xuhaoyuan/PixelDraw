@@ -88,7 +88,6 @@ class CanvasViewController: UIViewController {
 
         navigationItem.leftBarButtonItems = [closeBarItem, clearBarItem]
         navigationItem.rightBarButtonItems = [downloadBarItem, redoBarItem, undoBarItem]
-//        navigationItem.titleView = control
 
         scrollView.addSubview(contentView)
         contentView.addSubview(canvas)
@@ -109,20 +108,7 @@ class CanvasViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.bottom.equalToSuperview()
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-
-//        colorPicker.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview()
-//            make.top.equalTo(scrollView.snp.bottom).offset(16)
-//        }
-
-//        control.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview()
-//            make.bottom.equalTo(view.snp.bottom)
-//            make.top.equalTo(scrollView.snp.bottom).offset(16)
-//        }
 
         let item = UIBarButtonItem(customView: colorPicker)
         navigationController?.setToolbarHidden(false, animated: true)
@@ -147,8 +133,9 @@ class CanvasViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let adjustedHeight: CGFloat = scrollView.frame.height - scrollView.adjustedContentInset.top - scrollView.adjustedContentInset.bottom
+        let scrollWidth: CGFloat = scrollView.frame.size.width
         let cLength = max(canvas.frame.width, canvas.frame.height)
-        let vlength = min(scrollView.frame.width, adjustedHeight)
+        let vlength = min(scrollWidth, adjustedHeight)
         if cLength > vlength {
             scrollView.minimumZoomScale = vlength/cLength
             scrollView.maximumZoomScale = vlength/cLength*5
@@ -157,35 +144,32 @@ class CanvasViewController: UIViewController {
             scrollView.maximumZoomScale = 2
         }
 
-        contentView.snp.remakeConstraints { [weak self] make in
+        contentView.snp.remakeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
-//            make.width.height.equalToSuperview().priority(.low)
-            guard let self = self else { return }
-            let width: CGFloat = self.scrollView.frame.size.width
-            make.width.equalTo(contentView.snp.height).multipliedBy(width/adjustedHeight)
+            make.width.equalTo(contentView.snp.height).multipliedBy(scrollWidth/adjustedHeight)
         }
     }
 
-    @objc func undoButtonPressed() {
+    @objc private func undoButtonPressed() {
         canvas.viewModel.undo()
     }
 
-    @objc func redoButtonPressed() {
+    @objc private func redoButtonPressed() {
         canvas.viewModel.redo()
     }
 
-    @objc func saveButtonPressed() {
+    @objc private func saveButtonPressed() {
         let image = canvas.makeImageFromSelf()
         ZLEditImageViewController.showEditImageVC(parentVC: self, animate: true, image: image, editModel: nil) { img, _ in
             UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
         }
     }
 
-    @objc func zoomButtonPressed() {
-//        delegate?.zoomPressed()
+    @objc private func zoomButtonPressed() {
+        //        delegate?.zoomPressed()
     }
 
-    @objc func clearButtonPressed() {
+    @objc private func clearButtonPressed() {
         let vc = UIAlertController(title: "hi", message: "要清空画布吗？", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
             self?.canvas.viewModel.clear()
@@ -196,7 +180,7 @@ class CanvasViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 
-    @objc func closeButtonPressed() {
+    @objc private func closeButtonPressed() {
         dismiss(animated: true, completion: nil)
     }
 }

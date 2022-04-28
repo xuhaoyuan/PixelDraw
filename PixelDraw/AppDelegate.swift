@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TextAttributes
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if #available(iOS 13.0, *) {
             let apperance = UINavigationBarAppearance()
+            apperance.titleTextAttributes = TextAttributes().foregroundColor(UIColor.white).dictionary
             apperance.backgroundEffect = UIBlurEffect(style: .dark)
             UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().standardAppearance = apperance
@@ -26,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().barStyle = .black
             UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().isTranslucent = true
+            UINavigationBar.appearance().titleTextAttributes = TextAttributes().foregroundColor(UIColor.white).dictionary
         }
 
 

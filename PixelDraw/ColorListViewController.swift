@@ -13,9 +13,7 @@ class ColorListViewController: UIViewController {
 
     static func show(from: UIViewController) {
         let vc = ColorListViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        from.show(nav, sender: nil)
+        from.show(vc, sender: nil)
     }
 
     private lazy var collectionView: UICollectionView = {
@@ -55,13 +53,6 @@ class ColorListViewController: UIViewController {
         }
     }()
 
-    private lazy var leftItem: UIBarButtonItem = {
-        return UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.done) { [weak self] in
-            guard let self = self else { return }
-            self.dismiss(animated: true, completion: nil)
-        }
-    }()
-
     private var viewModel = ColorsViewModel.shared
 
     private let disposebag = DisposeBag()
@@ -76,7 +67,6 @@ class ColorListViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "颜色板"
-        navigationItem.leftBarButtonItem = leftItem
         navigationItem.rightBarButtonItem = rightItem
         makeUI()
 
