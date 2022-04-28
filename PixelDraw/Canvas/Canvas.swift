@@ -1,28 +1,28 @@
 import UIKit
 import Disk
 
-public class Canvas: UIView {
-	class Pixel: CALayer {
-	}
+class Canvas: UIView {
+	class Pixel: CALayer { }
 
-	var pixels: Array<Array<Pixel>>!
-	let width: Int
-	let height: Int
-	let pixelSize: CGFloat
-	let canvasDefaultColor: UIColor
-	public var paintBrushColor = UIColor.black
-	var viewModel: CanvasViewModel
-	var lastTouched = Set<Pixel>()
+    var paintBrushColor = UIColor.black
+    
+    private let widthPixels: Int
+    private let heightPixels: Int
+    private let pixelSize: CGFloat
+ 	private var pixels: Array<Array<Pixel>> = []
+    private let canvasDefaultColor: UIColor
 
-	public init(width: Int, height: Int, pixelSize: CGFloat, canvasColor: UIColor) {
-		self.width = width
-		self.height = height
-		self.pixelSize = pixelSize
-		canvasDefaultColor = canvasColor
-        let model = try? Disk.retrieve(CanvasViewModel.path, from: .documents, as: CanvasModel.self)
-		viewModel = CanvasViewModel(initialState: model)
-        let width: CGFloat = CGFloat(width) * pixelSize
-        let height: CGFloat = CGFloat(height) * pixelSize
+    private(set) var viewModel: CanvasViewModel
+    private var lastTouched = Set<Pixel>()
+
+    init(canvasModel: CanvasListModel) {
+        canvasDefaultColor = .clear
+        self.widthPixels = canvasModel.widthPixels
+        self.heightPixels = canvasModel.heightPixels
+        self.pixelSize = canvasModel.pixelSize
+        self.viewModel = CanvasViewModel(initialState: canvasModel.contextModel)
+        let width: CGFloat = CGFloat(widthPixels) * pixelSize
+        let height: CGFloat = CGFloat(heightPixels) * pixelSize
         super.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: height))
 		viewModel.delegate = self
         snp.makeConstraints { make in
@@ -47,11 +47,10 @@ public class Canvas: UIView {
 		addGestureRecognizer(dragGestureRecognizer)
         isUserInteractionEnabled = true
 
-
 		pixels = []
-		for heightIndex in 0..<height {
+		for heightIndex in 0..<heightPixels {
 			pixels.append([])
-			for widthIndex in 0..<width {
+			for widthIndex in 0..<widthPixels {
                 let pixel = createPixel(defaultColor: .clear)
 				pixel.frame = CGRect(
 					x: CGFloat(widthIndex) * pixelSize,
@@ -87,7 +86,7 @@ public class Canvas: UIView {
 	private func draw(atPoint point: CGPoint) {
 		let y = Int(point.y / pixelSize)
 		let x = Int(point.x / pixelSize)
-		guard y < height && x < width && y >= 0 && x >= 0 else { return }
+		guard y < heightPixels && x < widthPixels && y >= 0 && x >= 0 else { return }
 		viewModel.drawAt(x: x, y: y, color: paintBrushColor)
 	}
 

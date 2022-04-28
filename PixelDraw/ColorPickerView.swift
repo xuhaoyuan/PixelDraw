@@ -28,10 +28,10 @@ class ColorPickerView: UIView {
 
         switch entry {
         case .draw:
-            backgroundColor = UIColor.black
+            backgroundColor = UIColor.clear
             collectionView.allowsSelection = true
             collectionView.allowsMultipleSelection = false
-            collectionView.backgroundColor = UIColor.black
+            collectionView.backgroundColor = UIColor.clear
         case .color:
             backgroundColor = UIColor.white
             collectionView.backgroundColor = UIColor.white
@@ -40,8 +40,10 @@ class ColorPickerView: UIView {
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.height.equalTo(40)
+            make.height.greaterThanOrEqualTo(30)
         }
+
+        self.setContentCompressionResistancePriority(.required, for: .vertical)
 
         ColorsViewModel.shared.colorsObservable.bind { [weak self] colors in
             self?.list = colors
@@ -122,7 +124,7 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch entry {
         case .draw:
-            return CGSize(width: 24, height: 24)
+            return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
         case .color:
             return CGSize(width: 40, height: 40)
         }

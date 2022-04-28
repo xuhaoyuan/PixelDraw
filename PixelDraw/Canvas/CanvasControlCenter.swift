@@ -9,12 +9,11 @@ protocol CanvasControlCenterDelegate: AnyObject {
 }
 
 class CanvasControlCenter: UIView {
-    let theme: Theme
+
     weak var delegate: CanvasControlCenterDelegate?
 
-    init(theme: Theme) {
-        self.theme = theme
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
     }
 

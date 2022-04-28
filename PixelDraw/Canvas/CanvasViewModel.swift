@@ -7,7 +7,7 @@ protocol CanvasDelegate: AnyObject {
     func getAllPixel() -> Set<PixelState>
 }
 
-public struct CanvasState: Codable {
+public struct CanvasState: Codable, Equatable {
     let state: Set<PixelState>
 }
 
@@ -51,20 +51,12 @@ public struct PixelState: Hashable, Codable {
         hasher.combine(color)
     }
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
     public static func ==(lhs: PixelState, rhs: PixelState) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.color == rhs.color
     }
 }
 
-struct CanvasModel: Codable {
+struct CanvasModel: Codable, Equatable {
     var stateHistory: Array<CanvasState>
     var currentDraw: Set<PixelState>
     var undoneChanges: Array<CanvasState>

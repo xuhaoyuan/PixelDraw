@@ -16,20 +16,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if #available(iOS 13.0, *) {
             let apperance = UINavigationBarAppearance()
-            apperance.backgroundEffect = UIBlurEffect(style: .regular)
+            apperance.backgroundEffect = UIBlurEffect(style: .dark)
+            UINavigationBar.appearance().tintColor = .white
+            UINavigationBar.appearance().standardAppearance = apperance
             UINavigationBar.appearance().scrollEdgeAppearance = apperance
-            UINavigationBar.appearance().tintColor = .black
+            UINavigationBar.appearance().compactAppearance = apperance
+//            UINavigationBar.appearance().compactScrollEdgeAppearance = apperance
         } else {
-            UINavigationBar.appearance().tintColor = .black
+            UINavigationBar.appearance().barStyle = .black
+            UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().isTranslucent = true
         }
 
 
-        let vc = ViewController()
+        if #available(iOS 13.0, *) {
+            let apperance = UIToolbarAppearance()
+            apperance.backgroundEffect = UIBlurEffect(style: .dark)
+            UIToolbar.appearance().tintColor = .white
+            UIToolbar.appearance().standardAppearance = apperance
+            UIToolbar.appearance().compactAppearance = apperance
+            if #available(iOS 15.0, *) {
+                UIToolbar.appearance().scrollEdgeAppearance = apperance
+            }
+        } else {
+            UIToolbar.appearance().barStyle = .black
+            UIToolbar.appearance().isTranslucent = true
+        }
+
+
 
         window = UIWindow()
 
-        window?.rootViewController = vc
+//        let vc = ViewController()
+        let vc = HomeViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
 
         return true
