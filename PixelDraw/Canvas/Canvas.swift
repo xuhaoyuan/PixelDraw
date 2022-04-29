@@ -8,19 +8,17 @@ class Canvas: UIView {
     
     private let widthPixels: Int
     private let heightPixels: Int
-    private let pixelSize: CGFloat
+    private let pixelSize: CGFloat = 15
  	private var pixels: Array<Array<Pixel>> = []
     private let canvasDefaultColor: UIColor
 
-    private(set) var viewModel: CanvasViewModel
+    private(set) var viewModel: CanvasViewModel = CanvasViewModel()
     private var lastTouched = Set<Pixel>()
 
     init(canvasModel: CanvasListModel) {
         canvasDefaultColor = .clear
-        self.widthPixels = canvasModel.widthPixels
-        self.heightPixels = canvasModel.heightPixels
-        self.pixelSize = canvasModel.pixelSize
-        self.viewModel = CanvasViewModel(initialState: canvasModel.contextModel)
+        self.widthPixels = canvasModel.size.width
+        self.heightPixels = canvasModel.size.height
         let width: CGFloat = CGFloat(widthPixels) * pixelSize
         let height: CGFloat = CGFloat(heightPixels) * pixelSize
         super.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: height))
@@ -30,7 +28,6 @@ class Canvas: UIView {
             make.height.equalTo(height)
         }
 		setupView()
-        viewModel.recoveryCanvas()
         backgroundColor = UIColor.white
 	}
 

@@ -29,21 +29,55 @@ class BaseHomeCell: UICollectionViewCell {
 
 class HomeCollectionCell: BaseHomeCell {
 
-    private var imageView = UIImageView()
+    private let dateLabel = UILabel(font: UIFont.systemFont(ofSize: 12, weight: .regular), color: .black, alignment: .left)
+    private let sizeLabel = UILabel(font: UIFont.systemFont(ofSize: 12, weight: .regular), color: .black, alignment: .left)
+
+    private let preImgView = UIImageView()
+
+    private let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+
+    func config(model: CanvasListModel) {
+        dateLabel.text = model.lastDate.toString1
+        sizeLabel.text = "\(model.size.width) X \(model.size.height)"
+        preImgView.image = model.snapshot
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.gray
-        contentView.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
+        backgroundColor = UIColor.white
+
+        blur.corner = 16
+        blur.masksToBounds = true
+        blur.contentMode = .scaleAspectFill
+        preImgView.contentMode = .scaleAspectFit
+        preImgView.backgroundColor = UIColor.white
+
+        contentView.addSubview(blur)
+
+        blur.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+
+        let stackView = UIStackView(subviews: [sizeLabel, dateLabel], axis: .vertical, alignment: .leading, distribution: .fill, spacing: 8)
+        sizeLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        dateLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        blur.contentView.addSubview(stackView)
+        blur.contentView.addSubview(preImgView)
+
+        preImgView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(8)
+            make.bottom.equalTo(-8)
+            make.top.equalTo(preImgView.snp.bottom).offset(6)
         }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 class NewCanvasCollectionCell: BaseHomeCell {
@@ -52,7 +86,7 @@ class NewCanvasCollectionCell: BaseHomeCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.white
         contentView.addSubview(imageView)
         imageView.contentMode = .center
         imageView.snp.makeConstraints { make in

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
 
@@ -39,20 +41,28 @@ class HomeViewController: UIViewController {
         return view
     }()
 
+    private let disposeBag = DisposeBag()
+
     private enum Items: Equatable {
         case item(CanvasListModel)
         case new
     }
 
-    private var canvasList: [Items] = [.item(CanvasListModel.defaultModel()), .item(CanvasListModel.defaultModel()), .item(CanvasListModel.defaultModel()), .new]
+    private var canvasList: [Items] = [.new]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         makeUI()
+
+        HomeViewModel.shared.obserable.bind { [weak self] list in
+            self?.canvasList = list.map({ Items.item($0) }) + [.new]
+            self?.collectionView.reloadData()
+        }.disposed(by: disposeBag)
     }
 
     private func makeUI() {
+        title = "🖌️"
         view.backgroundColor = UIColor.white
 
         view.addSubview(deleteView)
@@ -68,6 +78,11 @@ class HomeViewController: UIViewController {
 
         let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(ges:)))
         collectionView.addGestureRecognizer(longPressGes)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UINavigationBar.appearance().tintColor = .black
     }
 
     private var moveIndexPath: IndexPath?
@@ -99,6 +114,7 @@ class HomeViewController: UIViewController {
             collectionView.performBatchUpdates { [weak self] in
                 self?.collectionView.deleteItems(at: [indexPath])
             } completion: { [weak self] _ in
+                HomeViewModel.shared.remove(index: indexPath.row)
                 self?.showDeleteView(false)
             }
         default:
@@ -153,9 +169,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         case .item(let canvas):
             CanvasViewController.show(model: canvas, from: self)
         case .new:
-            EntryActionSheetView.show { width, height in
-                let canvas = CanvasListModel(heightPixels: width, widthPixels: height)
+            EntryActionSheetView.show { size in
+                let canvas = CanvasListModel(size: size)
                 CanvasViewController.show(model: canvas, from: self)
+                HomeViewModel.shared.append(model: canvas)
             }
         }
     }
@@ -168,11 +185,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch canvasList[indexPath.row] {
         case .item(let canvas):
             let cell: HomeCollectionCell = collectionView.dequeueReusableCell(indexPath)
-//                    cell.backgroundColor = colors[indexPath.row]
+            cell.config(model: canvas)
             return cell
         case .new:
             let cell: NewCanvasCollectionCell = collectionView.dequeueReusableCell(indexPath)
-            //        cell.backgroundColor = colors[indexPath.row]
             return cell
         }
     }
@@ -202,5 +218,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let color = canvasList[sourceIndexPath.row]
         canvasList.removeAll { $0 == color }
         canvasList.insert(color, at: destinationIndexPath.row)
+        HomeViewModel.shared.update(list: canvasList.compactMap({
+            switch $0 {
+            case .item(let value):
+                return value
+            case .new:
+                return nil
+            }
+        }))
     }
 }

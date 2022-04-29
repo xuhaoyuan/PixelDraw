@@ -62,7 +62,7 @@ class ColorPickerViewController: UIViewController {
 
         navigationItem.title = "编辑颜色"
         navigationItem.rightBarButtonItem = rightItem
-        
+
         makeUI()
         switch self.editType {
         case .add: break
@@ -87,6 +87,11 @@ class ColorPickerViewController: UIViewController {
             guard let color = color else { return }
             self?.fillColor(color: color)
         }.disposed(by: disposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setToolbarHidden(true, animated: true)
     }
 
     private func makeUI() {

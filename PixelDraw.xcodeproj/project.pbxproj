@@ -13,7 +13,6 @@
 		5157B08B28154C65006BB62A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157B08928154C65006BB62A /* LaunchScreen.storyboard */; };
 		5157B09B28154DD6006BB62A /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09428154DD6006BB62A /* CanvasViewModel.swift */; };
 		5157B09D28154DD6006BB62A /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09628154DD6006BB62A /* Canvas.swift */; };
-		5157B09E28154DD6006BB62A /* CanvasControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157B09728154DD6006BB62A /* CanvasControlCenter.swift */; };
 		519A05FC2817C45200BD89F8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FB2817C45200BD89F8 /* ColorPickerView.swift */; };
 		519A05FE2817D13100BD89F8 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FD2817D13100BD89F8 /* Hex.swift */; };
 		519A06002817D25A00BD89F8 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FF2817D25A00BD89F8 /* RGB.swift */; };
@@ -43,7 +42,6 @@
 		5157B08C28154C65006BB62A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5157B09428154DD6006BB62A /* CanvasViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
 		5157B09628154DD6006BB62A /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		5157B09728154DD6006BB62A /* CanvasControlCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasControlCenter.swift; sourceTree = "<group>"; };
 		519A05FB2817C45200BD89F8 /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		519A05FD2817D13100BD89F8 /* Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		519A05FF2817D25A00BD89F8 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
@@ -125,11 +123,7 @@
 				519A05FF2817D25A00BD89F8 /* RGB.swift */,
 				51F7E0E1281A6D4A00E4915C /* Home */,
 				51F7E0E4281A84AA00E4915C /* Canvas */,
-				519A061F28191EB300BD89F8 /* ColorsViewModel.swift */,
-				519A05FB2817C45200BD89F8 /* ColorPickerView.swift */,
-				519A06012818F7B500BD89F8 /* ColorPickerViewController.swift */,
-				519A061D281917C900BD89F8 /* ColorListViewController.swift */,
-				519A061B2818F80800BD89F8 /* ReportDataView.swift */,
+				51C66B31281BE67B009EA673 /* New Group */,
 				5157B08728154C65006BB62A /* Assets.xcassets */,
 				5157B08928154C65006BB62A /* LaunchScreen.storyboard */,
 				5157B08C28154C65006BB62A /* Info.plist */,
@@ -164,6 +158,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		51C66B31281BE67B009EA673 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				519A061F28191EB300BD89F8 /* ColorsViewModel.swift */,
+				519A061D281917C900BD89F8 /* ColorListViewController.swift */,
+				519A06012818F7B500BD89F8 /* ColorPickerViewController.swift */,
+				519A061B2818F80800BD89F8 /* ReportDataView.swift */,
+				519A05FB2817C45200BD89F8 /* ColorPickerView.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		51F7E0E1281A6D4A00E4915C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +186,6 @@
 			children = (
 				5157B09628154DD6006BB62A /* Canvas.swift */,
 				5157B09428154DD6006BB62A /* CanvasViewModel.swift */,
-				5157B09728154DD6006BB62A /* CanvasControlCenter.swift */,
 				5157B08228154C63006BB62A /* CanvasViewController.swift */,
 			);
 			path = Canvas;
@@ -305,7 +310,6 @@
 				51F7E0E0281A6B7C00E4915C /* HomeViewModel.swift in Sources */,
 				51F7E0E3281A6D7A00E4915C /* HomeCollectionCell.swift in Sources */,
 				51C66B30281AAAA6009EA673 /* EntryActionSheetView.swift in Sources */,
-				5157B09E28154DD6006BB62A /* CanvasControlCenter.swift in Sources */,
 				519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */,
 				51F7E0DE281A6ACE00E4915C /* HomeViewController.swift in Sources */,
 				519A061A2818F7F500BD89F8 /* ColorIndicatorView.m in Sources */,

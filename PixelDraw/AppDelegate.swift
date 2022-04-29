@@ -18,12 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             let apperance = UINavigationBarAppearance()
             apperance.titleTextAttributes = TextAttributes().foregroundColor(UIColor.white).dictionary
-            apperance.backgroundEffect = UIBlurEffect(style: .dark)
+            apperance.backgroundEffect = UIBlurEffect(style: .regular)
             UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().standardAppearance = apperance
             UINavigationBar.appearance().scrollEdgeAppearance = apperance
             UINavigationBar.appearance().compactAppearance = apperance
-//            UINavigationBar.appearance().compactScrollEdgeAppearance = apperance
         } else {
             UINavigationBar.appearance().barStyle = .black
             UINavigationBar.appearance().tintColor = .white

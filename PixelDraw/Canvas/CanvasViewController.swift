@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import ZLPhotoBrowser
+import XHYCategories
 
 class CanvasViewController: UIViewController {
 
@@ -31,7 +32,7 @@ class CanvasViewController: UIViewController {
     private let colorPicker = ColorPickerView(entry: .draw)
 
     private let pixelSize: CGFloat = 15
-    private let model: CanvasListModel
+    private var model: CanvasListModel
 
     private lazy var undoBarItem: UIBarButtonItem = {
         let item = UIBarButtonItem.init(image: UIImage(named: "undo"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(undoButtonPressed))
@@ -58,6 +59,8 @@ class CanvasViewController: UIViewController {
         return item
     }()
 
+    private var willTerminate: NSObjectProtocol?
+
     init(model: CanvasListModel) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
@@ -67,6 +70,10 @@ class CanvasViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    deinit {
+        willTerminate = nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,10 +82,17 @@ class CanvasViewController: UIViewController {
         colorPicker.colorHandler = { [weak self] color in
             self?.canvas.paintBrushColor = color
         }
+
         colorPicker.addHandler = { [weak self] in
             guard let self = self else { return }
             ColorListViewController.show(from: self)
         }
+
+        willTerminate = NotificationCenter.default.addObserver(forName: UIApplication.willTerminateNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveData()
+        }
+
+        recoveryCanvas()
     }
 
     private func makeUI() {
@@ -110,23 +124,31 @@ class CanvasViewController: UIViewController {
         }
 
         let item = UIBarButtonItem(customView: colorPicker)
-        navigationController?.setToolbarHidden(false, animated: true)
         setToolbarItems([item], animated: false)
     }
 
     private var isWillAppear = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .white
         guard !isWillAppear else { return }
         scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
         isWillAppear = true
     }
+
     private var isDidAppear = false
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.setToolbarHidden(false, animated: true)
         guard !isDidAppear else { return }
         scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
         isDidAppear = true
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        saveData()
     }
 
     override func viewDidLayoutSubviews() {
@@ -185,6 +207,12 @@ class CanvasViewController: UIViewController {
         //        delegate?.zoomPressed()
     }
 
+    func recoveryCanvas() {
+        for pixelState in model.drawPoints {
+            canvas.colorChanged(newPixelState: pixelState)
+        }
+    }
+
     @objc private func clearButtonPressed() {
         let vc = UIAlertController(title: "hi", message: "要清空画布吗？", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
@@ -197,12 +225,29 @@ class CanvasViewController: UIViewController {
     }
 
     @objc private func closeButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        let hud = ZLProgressHUD(style: .dark)
+        hud.show()
+        saveData { [weak self] in
+            hud.hide()
+            self?.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    private func saveData(finish: VoidHandler? = nil) {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            self.model.snapshot = self.canvas.makeImageFromSelf()
+            self.model.drawPoints = self.canvas.getAllPixel()
+            self.model.lastDate = Date()
+            DispatchQueue.main.async {
+                HomeViewModel.shared.update(model: self.model)
+                finish?()
+            }
+        }
     }
 }
 
 extension CanvasViewController: UIScrollViewDelegate {
-
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         contentView.transform = CGAffineTransform.init(scaleX: scrollView.zoomScale, y: scrollView.zoomScale)
@@ -211,5 +256,4 @@ extension CanvasViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return contentView
     }
-
 }

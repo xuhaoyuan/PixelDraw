@@ -11,7 +11,7 @@ import SwiftEntryKit
 
 class EntryActionSheetView: UIView {
 
-    static func show(handler: @escaping (Int, Int) -> Void) {
+    static func show(handler: @escaping (CanvasSize) -> Void) {
         let view = EntryActionSheetView(sizeHandler: handler)
         SwiftEntryKit.display(entry: view, using: .bottom)
     }
@@ -29,7 +29,7 @@ class EntryActionSheetView: UIView {
         return tmp
     }()
 
-    init(sizeHandler: @escaping (Int, Int) -> Void) {
+    init(sizeHandler: @escaping (CanvasSize) -> Void) {
         super.init(frame: .zero)
         pickView.delegate = self
         pickView.dataSource = self
@@ -80,7 +80,7 @@ class EntryActionSheetView: UIView {
             let width = self.items[self.pickView.selectedRow(inComponent: Component.width.rawValue)]
             let height = self.items[self.pickView.selectedRow(inComponent: Component.height.rawValue)]
             SwiftEntryKit.dismiss {
-                sizeHandler(width, height)
+                sizeHandler(CanvasSize(w: width, h: height))
             }
         }
     }

@@ -60,16 +60,13 @@ struct CanvasModel: Codable, Equatable {
     var stateHistory: Array<CanvasState>
     var currentDraw: Set<PixelState>
     var undoneChanges: Array<CanvasState>
-    var currentCanvas: Set<PixelState>
 
     init(stateHistory: Array<CanvasState> = [],
          currentDraw: Set<PixelState> = [],
-         undoneChanges: Array<CanvasState> = [],
-         currentCanvas: Set<PixelState> = []) {
+         undoneChanges: Array<CanvasState> = []) {
         self.stateHistory = stateHistory
         self.currentDraw = currentDraw
         self.undoneChanges = undoneChanges
-        self.currentCanvas = currentCanvas
     }
 }
 
@@ -77,33 +74,13 @@ class CanvasViewModel: NSObject {
 
     private var model = CanvasModel()
 
-    private var willTerminate: NSObjectProtocol?
-    static let path = "/pixelData/data"
     weak var delegate: CanvasDelegate?
 
-    init(initialState: CanvasModel?) {
+    init(initialState: CanvasModel? = nil) {
         if let initialState = initialState {
             self.model = initialState
         }
         super.init()
-        willTerminate = NotificationCenter.default.addObserver(forName: UIApplication.willTerminateNotification, object: nil, queue: .main) { [weak self] _ in
-            self?.saveData()
-        }
-    }
-
-    deinit {
-        willTerminate = nil
-    }
-
-    private func saveData() {
-        model.currentCanvas = delegate?.getAllPixel() ?? []
-        let encode = JSONEncoder()
-        do {
-            let jsonObj = try encode.encode(model)
-            try Disk.save(jsonObj, to: .documents, as: Self.path)
-        } catch {
-
-        }
     }
     
     func drawAt(x: Int, y: Int, color: UIColor) {
@@ -138,7 +115,6 @@ class CanvasViewModel: NSObject {
     func clear() {
         delegate?.clearCanvas()
         model = CanvasModel()
-        try? Disk.remove(Self.path, from: .documents)
     }
 
     func undo() {
@@ -159,12 +135,6 @@ class CanvasViewModel: NSObject {
 
     func apply(canvasState: CanvasState) {
         for pixelState in canvasState.state {
-            delegate?.colorChanged(newPixelState: pixelState)
-        }
-    }
-
-    func recoveryCanvas() {
-        for pixelState in model.currentCanvas {
             delegate?.colorChanged(newPixelState: pixelState)
         }
     }

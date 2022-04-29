@@ -142,6 +142,12 @@ class ColorListViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.setToolbarHidden(true, animated: true)
+    }
 }
 
 extension ColorListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -190,7 +196,11 @@ fileprivate class ColorListCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        masksToBounds = true
+        layer.cornerRadius = 16
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 12
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.2
     }
 
     required init?(coder: NSCoder) {
@@ -199,8 +209,9 @@ fileprivate class ColorListCell: UICollectionViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        corner = frame.height/2
-        border(color: .black, width: 2)
+        layer.cornerRadius = frame.height/2
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: frame.height/2).cgPath
+
     }
 }
 
