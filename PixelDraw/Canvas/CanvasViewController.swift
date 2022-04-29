@@ -30,7 +30,6 @@ class CanvasViewController: UIViewController {
     private lazy var canvas: Canvas = Canvas(canvasModel: model)
     private let colorPicker = ColorPickerView(entry: .draw)
 
-    private let heightWidthInPixels: Int = 50
     private let pixelSize: CGFloat = 15
     private let model: CanvasListModel
 
@@ -132,21 +131,38 @@ class CanvasViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let adjustedHeight: CGFloat = scrollView.frame.height - scrollView.adjustedContentInset.top - scrollView.adjustedContentInset.bottom
-        let scrollWidth: CGFloat = scrollView.frame.size.width
-        let cLength = max(canvas.frame.width, canvas.frame.height)
-        let vlength = min(scrollWidth, adjustedHeight)
-        if cLength > vlength {
-            scrollView.minimumZoomScale = vlength/cLength
-            scrollView.maximumZoomScale = vlength/cLength*5
-        } else {
-            scrollView.minimumZoomScale = 1
-            scrollView.maximumZoomScale = 2
-        }
+        let sHeight: CGFloat = scrollView.frame.height - scrollView.adjustedContentInset.top - scrollView.adjustedContentInset.bottom
+        let sWidth: CGFloat = scrollView.frame.size.width
+        let cHeight = canvas.frame.height
+        let cWidth = canvas.frame.width
 
-        contentView.snp.remakeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview()
-            make.width.equalTo(contentView.snp.height).multipliedBy(scrollWidth/adjustedHeight)
+        let sScale: CGFloat = sWidth/sHeight
+        let cScale: CGFloat = cWidth/cHeight
+        if sHeight > cHeight, sWidth > cWidth {
+            scrollView.minimumZoomScale = 1
+            scrollView.maximumZoomScale = 5
+            contentView.snp.remakeConstraints { make in
+                make.top.leading.trailing.bottom.equalToSuperview()
+                make.width.equalToSuperview()
+                make.width.equalTo(contentView.snp.height).multipliedBy(sScale)
+            }
+        } else {
+            if sScale > cScale {
+                let margin = (sWidth - sHeight*cScale)/2
+                scrollView.contentInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
+                scrollView.minimumZoomScale = sHeight/cHeight
+                scrollView.maximumZoomScale = sWidth/(10*15)
+            } else {
+                let margin = (sHeight - sWidth/cScale)/2
+                scrollView.minimumZoomScale = sWidth/cWidth
+                scrollView.maximumZoomScale = sHeight/(10*15/sScale)
+                scrollView.contentInset = UIEdgeInsets(top: margin, left: 0, bottom: margin, right: 0)
+
+            }
+            contentView.snp.remakeConstraints { make in
+                make.top.leading.trailing.bottom.equalToSuperview()
+                make.width.equalTo(contentView.snp.height).multipliedBy(cScale)
+            }
         }
     }
 

@@ -153,7 +153,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         case .item(let canvas):
             CanvasViewController.show(model: canvas, from: self)
         case .new:
-            CanvasViewController.show(model: .defaultModel(), from: self)
+            EntryActionSheetView.show { width, height in
+                let canvas = CanvasListModel(heightPixels: width, widthPixels: height)
+                CanvasViewController.show(model: canvas, from: self)
+            }
         }
     }
 
