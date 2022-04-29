@@ -26,6 +26,7 @@
 		519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061B2818F80800BD89F8 /* ReportDataView.swift */; };
 		519A061E281917C900BD89F8 /* ColorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061D281917C900BD89F8 /* ColorListViewController.swift */; };
 		519A062028191EB300BD89F8 /* ColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061F28191EB300BD89F8 /* ColorsViewModel.swift */; };
+		51C66B30281AAAA6009EA673 /* EntryActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C66B2F281AAAA6009EA673 /* EntryActionSheetView.swift */; };
 		51F7E0DE281A6ACE00E4915C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F7E0DD281A6ACE00E4915C /* HomeViewController.swift */; };
 		51F7E0E0281A6B7C00E4915C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F7E0DF281A6B7C00E4915C /* HomeViewModel.swift */; };
 		51F7E0E3281A6D7A00E4915C /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F7E0E2281A6D7A00E4915C /* HomeCollectionCell.swift */; };
@@ -61,6 +62,7 @@
 		519A061B2818F80800BD89F8 /* ReportDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDataView.swift; sourceTree = "<group>"; };
 		519A061D281917C900BD89F8 /* ColorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewController.swift; sourceTree = "<group>"; };
 		519A061F28191EB300BD89F8 /* ColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewModel.swift; sourceTree = "<group>"; };
+		51C66B2F281AAAA6009EA673 /* EntryActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryActionSheetView.swift; sourceTree = "<group>"; };
 		51F7E0DD281A6ACE00E4915C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		51F7E0DF281A6B7C00E4915C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		51F7E0E2281A6D7A00E4915C /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				51F7E0DD281A6ACE00E4915C /* HomeViewController.swift */,
 				51F7E0DF281A6B7C00E4915C /* HomeViewModel.swift */,
 				51F7E0E2281A6D7A00E4915C /* HomeCollectionCell.swift */,
+				51C66B2F281AAAA6009EA673 /* EntryActionSheetView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				519A06022818F7B500BD89F8 /* ColorPickerViewController.swift in Sources */,
 				51F7E0E0281A6B7C00E4915C /* HomeViewModel.swift in Sources */,
 				51F7E0E3281A6D7A00E4915C /* HomeCollectionCell.swift in Sources */,
+				51C66B30281AAAA6009EA673 /* EntryActionSheetView.swift in Sources */,
 				5157B09E28154DD6006BB62A /* CanvasControlCenter.swift in Sources */,
 				519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */,
 				51F7E0DE281A6ACE00E4915C /* HomeViewController.swift in Sources */,
