@@ -18,14 +18,13 @@
 		519A06002817D25A00BD89F8 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A05FF2817D25A00BD89F8 /* RGB.swift */; };
 		519A06022818F7B500BD89F8 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A06012818F7B500BD89F8 /* ColorPickerViewController.swift */; };
 		519A06152818F7F500BD89F8 /* HSBSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A06082818F7F500BD89F8 /* HSBSupport.m */; };
-		519A06172818F7F500BD89F8 /* DivoomColorLumpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A060E2818F7F500BD89F8 /* DivoomColorLumpView.m */; };
-		519A06182818F7F500BD89F8 /* DivoomColorSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A060F2818F7F500BD89F8 /* DivoomColorSquareView.m */; };
-		519A06192818F7F500BD89F8 /* DivoomColorBarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A06112818F7F500BD89F8 /* DivoomColorBarPickerView.m */; };
-		519A061A2818F7F500BD89F8 /* ColorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 519A06122818F7F500BD89F8 /* ColorIndicatorView.m */; };
 		519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061B2818F80800BD89F8 /* ReportDataView.swift */; };
 		519A061E281917C900BD89F8 /* ColorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061D281917C900BD89F8 /* ColorListViewController.swift */; };
 		519A062028191EB300BD89F8 /* ColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A061F28191EB300BD89F8 /* ColorsViewModel.swift */; };
 		51C66B30281AAAA6009EA673 /* EntryActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C66B2F281AAAA6009EA673 /* EntryActionSheetView.swift */; };
+		51C66B342823AF24009EA673 /* DivoomColorBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C66B332823AF24009EA673 /* DivoomColorBarPickerView.swift */; };
+		51C66B362823AFB4009EA673 /* ColorIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C66B352823AFB3009EA673 /* ColorIndicatorView.swift */; };
+		51C66B3A2823B14A009EA673 /* DivoomColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C66B392823B14A009EA673 /* DivoomColorSquareView.swift */; };
 		51F7E0DE281A6ACE00E4915C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F7E0DD281A6ACE00E4915C /* HomeViewController.swift */; };
 		51F7E0E0281A6B7C00E4915C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F7E0DF281A6B7C00E4915C /* HomeViewModel.swift */; };
 		51F7E0E3281A6D7A00E4915C /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F7E0E2281A6D7A00E4915C /* HomeCollectionCell.swift */; };
@@ -49,18 +48,13 @@
 		519A06032818F7E700BD89F8 /* PixelDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		519A06082818F7F500BD89F8 /* HSBSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSBSupport.m; sourceTree = "<group>"; };
 		519A060B2818F7F500BD89F8 /* HSBSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBSupport.h; sourceTree = "<group>"; };
-		519A060D2818F7F500BD89F8 /* DivoomColorBarPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivoomColorBarPickerView.h; sourceTree = "<group>"; };
-		519A060E2818F7F500BD89F8 /* DivoomColorLumpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivoomColorLumpView.m; sourceTree = "<group>"; };
-		519A060F2818F7F500BD89F8 /* DivoomColorSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivoomColorSquareView.m; sourceTree = "<group>"; };
-		519A06102818F7F500BD89F8 /* ColorIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorIndicatorView.h; sourceTree = "<group>"; };
-		519A06112818F7F500BD89F8 /* DivoomColorBarPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivoomColorBarPickerView.m; sourceTree = "<group>"; };
-		519A06122818F7F500BD89F8 /* ColorIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorIndicatorView.m; sourceTree = "<group>"; };
-		519A06132818F7F500BD89F8 /* DivoomColorSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivoomColorSquareView.h; sourceTree = "<group>"; };
-		519A06142818F7F500BD89F8 /* DivoomColorLumpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivoomColorLumpView.h; sourceTree = "<group>"; };
 		519A061B2818F80800BD89F8 /* ReportDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDataView.swift; sourceTree = "<group>"; };
 		519A061D281917C900BD89F8 /* ColorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewController.swift; sourceTree = "<group>"; };
 		519A061F28191EB300BD89F8 /* ColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewModel.swift; sourceTree = "<group>"; };
 		51C66B2F281AAAA6009EA673 /* EntryActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryActionSheetView.swift; sourceTree = "<group>"; };
+		51C66B332823AF24009EA673 /* DivoomColorBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivoomColorBarPickerView.swift; sourceTree = "<group>"; };
+		51C66B352823AFB3009EA673 /* ColorIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorIndicatorView.swift; sourceTree = "<group>"; };
+		51C66B392823B14A009EA673 /* DivoomColorSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivoomColorSquareView.swift; sourceTree = "<group>"; };
 		51F7E0DD281A6ACE00E4915C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		51F7E0DF281A6B7C00E4915C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		51F7E0E2281A6D7A00E4915C /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
@@ -123,8 +117,9 @@
 				519A05FF2817D25A00BD89F8 /* RGB.swift */,
 				51F7E0E1281A6D4A00E4915C /* Home */,
 				51F7E0E4281A84AA00E4915C /* Canvas */,
-				51C66B31281BE67B009EA673 /* New Group */,
+				51C66B31281BE67B009EA673 /* Colors */,
 				5157B08728154C65006BB62A /* Assets.xcassets */,
+				51C66B322823AEFF009EA673 /* Board */,
 				5157B08928154C65006BB62A /* LaunchScreen.storyboard */,
 				5157B08C28154C65006BB62A /* Info.plist */,
 				519A06032818F7E700BD89F8 /* PixelDraw-Bridging-Header.h */,
@@ -146,19 +141,11 @@
 		519A060C2818F7F500BD89F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				519A060D2818F7F500BD89F8 /* DivoomColorBarPickerView.h */,
-				519A060E2818F7F500BD89F8 /* DivoomColorLumpView.m */,
-				519A060F2818F7F500BD89F8 /* DivoomColorSquareView.m */,
-				519A06102818F7F500BD89F8 /* ColorIndicatorView.h */,
-				519A06112818F7F500BD89F8 /* DivoomColorBarPickerView.m */,
-				519A06122818F7F500BD89F8 /* ColorIndicatorView.m */,
-				519A06132818F7F500BD89F8 /* DivoomColorSquareView.h */,
-				519A06142818F7F500BD89F8 /* DivoomColorLumpView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		51C66B31281BE67B009EA673 /* New Group */ = {
+		51C66B31281BE67B009EA673 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
 				519A061F28191EB300BD89F8 /* ColorsViewModel.swift */,
@@ -167,7 +154,17 @@
 				519A061B2818F80800BD89F8 /* ReportDataView.swift */,
 				519A05FB2817C45200BD89F8 /* ColorPickerView.swift */,
 			);
-			path = "New Group";
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		51C66B322823AEFF009EA673 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				51C66B332823AF24009EA673 /* DivoomColorBarPickerView.swift */,
+				51C66B392823B14A009EA673 /* DivoomColorSquareView.swift */,
+				51C66B352823AFB3009EA673 /* ColorIndicatorView.swift */,
+			);
+			path = Board;
 			sourceTree = "<group>";
 		};
 		51F7E0E1281A6D4A00E4915C /* Home */ = {
@@ -312,20 +309,19 @@
 				51C66B30281AAAA6009EA673 /* EntryActionSheetView.swift in Sources */,
 				519A061C2818F80800BD89F8 /* ReportDataView.swift in Sources */,
 				51F7E0DE281A6ACE00E4915C /* HomeViewController.swift in Sources */,
-				519A061A2818F7F500BD89F8 /* ColorIndicatorView.m in Sources */,
-				519A06192818F7F500BD89F8 /* DivoomColorBarPickerView.m in Sources */,
 				519A06002817D25A00BD89F8 /* RGB.swift in Sources */,
+				51C66B362823AFB4009EA673 /* ColorIndicatorView.swift in Sources */,
 				5157B09B28154DD6006BB62A /* CanvasViewModel.swift in Sources */,
-				519A06172818F7F500BD89F8 /* DivoomColorLumpView.m in Sources */,
 				519A061E281917C900BD89F8 /* ColorListViewController.swift in Sources */,
+				51C66B342823AF24009EA673 /* DivoomColorBarPickerView.swift in Sources */,
 				519A05FC2817C45200BD89F8 /* ColorPickerView.swift in Sources */,
 				519A05FE2817D13100BD89F8 /* Hex.swift in Sources */,
 				519A062028191EB300BD89F8 /* ColorsViewModel.swift in Sources */,
 				5157B08328154C63006BB62A /* CanvasViewController.swift in Sources */,
 				5157B07F28154C63006BB62A /* AppDelegate.swift in Sources */,
-				519A06182818F7F500BD89F8 /* DivoomColorSquareView.m in Sources */,
 				5157B09D28154DD6006BB62A /* Canvas.swift in Sources */,
 				519A06152818F7F500BD89F8 /* HSBSupport.m in Sources */,
+				51C66B3A2823B14A009EA673 /* DivoomColorSquareView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,11 +463,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7W28J6N6JR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PixelDraw/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "像素风画板";
+				INFOPLIST_KEY_CFBundleDisplayName = "像素画板Pro";
 				INFOPLIST_KEY_NSCameraUsageDescription = "图片功能需要使用手机相册权限";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
@@ -489,7 +485,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xhy.PixelDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xu.PixelDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "PixelDraw/PixelDraw-Bridging-Header.h";
@@ -507,11 +503,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 7W28J6N6JR;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63AWXG7SN3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PixelDraw/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "像素风画板";
+				INFOPLIST_KEY_CFBundleDisplayName = "像素画板Pro";
 				INFOPLIST_KEY_NSCameraUsageDescription = "图片功能需要使用手机相册权限";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
@@ -529,7 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xhy.PixelDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xu.PixelDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "PixelDraw/PixelDraw-Bridging-Header.h";

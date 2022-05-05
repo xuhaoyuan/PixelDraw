@@ -1,11 +1,3 @@
-//
-//  Hex.swift
-//  ColorKit
-//
-//  Created by Boris Emorine on 2/27/20.
-//  Copyright © 2020 BorisEmorine. All rights reserved.
-//
-
 import UIKit
 
 extension UIColor {

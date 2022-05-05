@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  PixelDraw
-//
-//  Created by 许浩渊 on 2022/4/24.
-//
-
 import UIKit
 import TextAttributes
 

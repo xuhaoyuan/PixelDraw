@@ -71,7 +71,7 @@ class ColorPickerViewController: UIViewController {
         }
 
         barPickerView.valueChangedBlock = { [weak self] value in
-            self?.squareView.hvalue = value
+            self?.squareView.setHvalue(value)
         }
 
         squareView.colorChangedBlock = { [weak self] value in
@@ -161,9 +161,9 @@ class ColorPickerViewController: UIViewController {
         var s: Float = 0
         var v: Float = 0
         RGBToHSV(r, g, b, &h, &s, &v, true)
-        barPickerView.hvalue = CGFloat(h)
-        squareView.hvalue = CGFloat(h)
-        squareView.svvalue = CGPoint(x: CGFloat(s), y: CGFloat(v))
+        barPickerView.setHvalue(CGFloat(h))
+        squareView.setHvalue(CGFloat(h))
+        squareView.setvvalue(CGPoint(x: CGFloat(s), y: CGFloat(v)))
     }
 }
 

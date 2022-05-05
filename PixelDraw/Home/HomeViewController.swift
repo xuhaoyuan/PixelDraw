@@ -1,10 +1,3 @@
-//
-//  HomeViewController.swift
-//  PixelDraw
-//
-//  Created by 许浩渊 on 2022/4/28.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -62,7 +55,7 @@ class HomeViewController: UIViewController {
     }
 
     private func makeUI() {
-        title = "🖌️"
+        title = "像素画板"
         view.backgroundColor = UIColor.white
 
         view.addSubview(deleteView)
