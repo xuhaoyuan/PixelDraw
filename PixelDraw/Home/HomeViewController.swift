@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
     }
 
     private func makeUI() {
-        title = "像素画板"
+        title = "🖌️"
         view.backgroundColor = UIColor.white
 
         view.addSubview(deleteView)

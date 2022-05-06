@@ -1,10 +1,3 @@
-//
-//  HomeViewModel.swift
-//  PixelDraw
-//
-//  Created by 许浩渊 on 2022/4/28.
-//
-
 import UIKit
 import Disk
 import RxSwift
